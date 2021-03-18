@@ -1,0 +1,28 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(16)
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    testImplementation 'junit:junit:4.13'
+}
+
+application {
+    mainClassName = 'de.jvpichowski.htftf.server.App'
+}
+
+//let gradle access JDK internals to support incremental compilation
+tasks.withType(JavaCompile).configureEach {
+    options.forkOptions.jvmArgs.addAll( ['--add-opens', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED'] )
+}
