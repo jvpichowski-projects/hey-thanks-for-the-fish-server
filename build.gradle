@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
+    implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.16'
 
     testImplementation 'junit:junit:4.13'
 }
