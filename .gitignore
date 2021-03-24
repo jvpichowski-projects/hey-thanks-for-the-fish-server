@@ -1,5 +1,35 @@
+working_hours.md
+
 # Ignore Gradle project-specific cache directory
 .gradle
 
 # Ignore Gradle build output directory
 build
+
+# exluded all idea files
+.idea
+
+*.iml
+*.ipr
+
+# CMake
+cmake-build-*/
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
