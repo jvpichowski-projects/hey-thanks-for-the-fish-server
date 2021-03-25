@@ -1,3 +1,5 @@
 package de.jvpichowski.htftf.protocol.htftf;
 
-public interface Move { }
+import de.jvpichowski.htftf.protocol.base.ProtocolMessage;
+
+public interface Move extends ProtocolMessage { }
