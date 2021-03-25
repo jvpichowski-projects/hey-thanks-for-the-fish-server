@@ -1,7 +1,6 @@
-package de.jvpichowski.htftf.protocol;
+package de.jvpichowski.htftf.protocol.base;
 
 import com.thoughtworks.xstream.XStream;
-import de.jvpichowski.htftf.protocol.base.JoinRoomRequest;
 import org.junit.Assert;
 import org.junit.Test;
 
