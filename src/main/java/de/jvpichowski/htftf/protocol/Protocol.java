@@ -2,7 +2,7 @@ package de.jvpichowski.htftf.protocol;
 
 import com.thoughtworks.xstream.XStream;
 import de.jvpichowski.htftf.protocol.base.*;
-import de.jvpichowski.htftf.protocol.game.WelcomeMessage;
+import de.jvpichowski.htftf.protocol.htftf.WelcomeMessage;
 import de.jvpichowski.htftf.protocol.htftf.*;
 
 import java.io.ByteArrayOutputStream;
@@ -26,13 +26,16 @@ public class Protocol {
 		xstream.processAnnotations(Player.class);
 		xstream.processAnnotations(FieldArray.class);
 		xstream.processAnnotations(SetMove.class);
+		xstream.processAnnotations(NullMove.class);
+		xstream.processAnnotations(RunMove.class);
+		xstream.processAnnotations(MoveRequest.class);
 		xstream.processAnnotations(Fields.class); //unnecessary
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		var stream = xstream.createObjectOutputStream(outputStream, "protocol");
 		stream.writeObject(new JoinRoomRequest("swc_2015_hey_danke_fuer_den_fisch"));
 		stream.writeObject(new JoinPreparedRoomRequest("RC"));
 		stream.writeObject(new JoinedRoomResponse("RID"));
-		stream.writeObject(new RoomPacket("RID", new WelcomeMessage("RED")));
+		stream.writeObject(new RoomPacket("RID", new WelcomeMessage(Team.BLUE)));
 		stream.writeObject(new RoomPacket("RID", new MementoPacket(new State(
 				0,
 				Team.RED,
@@ -55,6 +58,8 @@ public class Protocol {
 				)),
 				new Condition(Team.BLUE, "SOFT_TIMEOUT")
 		))));
+		stream.writeObject(new RoomPacket("RID", new MoveRequest()));
+		stream.writeObject(new RoomPacket("RID", new SetMove(3, 4, null)));
 		stream.close();
 
 		System.out.println(outputStream);
