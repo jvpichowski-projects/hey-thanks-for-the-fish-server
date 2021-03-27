@@ -40,7 +40,7 @@ public class GameResultTest {
 					new PlayerScore(ScoreCausa.REGULAR, "R1", Arrays.asList(
 							new BigDecimal(2), new BigDecimal(4)))
 			),
-			Arrays.asList(new Player("NAME", Team.Blue))
+			Arrays.asList(new Player("NAME", Team.BLUE))
 		));
 		stream.writeObject(roomPacket);
 		stream.close();

@@ -5,6 +5,6 @@ import de.jvpichowski.htftf.protocol.game.Color;
 
 @XStreamAlias("team")
 public enum Team implements Color {
-	Blue,
-	Red
+	BLUE,
+	RED
 }
