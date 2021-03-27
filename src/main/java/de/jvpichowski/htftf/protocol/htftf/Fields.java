@@ -5,6 +5,6 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 import java.util.List;
 
-@XStreamAlias("board")
-public record Board(Fields fields
-) { }
+@XStreamAlias("fields")
+public record Fields(
+		@XStreamImplicit List<FieldArray> fields) { }
